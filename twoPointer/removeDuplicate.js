@@ -36,3 +36,18 @@ var removeDuplicates2 = function (nums) {
 };
 
 console.log(removeDuplicates2([1, 1, 2]));
+
+//similar problem
+// To do this problem we will use two pointer which is creating one pointer for creating and adding the value that is not equal to the key to a new array.
+const removeDiplicatesWithUnsortedArray = (nums, key) => {
+  let filteredArrayLength = 0;
+  for (let i = 0; i < nums.length; i++) {
+    const number = nums[i];
+    if (number !== key) {
+      filteredArrayLength++;
+    }
+  }
+  return filteredArrayLength;
+};
+
+console.log(removeDiplicatesWithUnsortedArray([2, 11, 2, 2, 1], 2));
