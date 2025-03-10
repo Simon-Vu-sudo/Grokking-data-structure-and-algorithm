@@ -28,7 +28,7 @@ var threeSumClosest = function (nums, target) {
       }
     }
   }
-  return smallestDifferent;
+  return target - smallestDifferent;
 };
 
 console.log(threeSumClosest([0, 0, 0], 1)); // 2

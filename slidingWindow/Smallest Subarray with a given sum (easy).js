@@ -1,18 +1,19 @@
-const smallestSubarraySum = (S, nums) => {
-  let windowStart = 0;
-  let windowSum = 0;
-  let minLength = Infinity;
-  for (let windowEnd = 0; windowEnd < nums.length; windowEnd++) {
-    windowSum += nums[windowEnd];
-    while (windowSum >= S) {
-      if (minLength > windowEnd - windowStart + 1) {
-        minLength = windowEnd - windowStart + 1;
+const smallestSubarraySum = (target, nums) => {
+  let minTargetSubArraySum = Infinity;
+  let accumulateSumArray = 0;
+  let windowLeft = 0;
+  for(let windowRight = 0; windowRight < nums.length; windowRight++) {
+    accumulateSumArray +=  nums[windowRight];
+    while(accumulateSumArray >= target) {  
+      if(minTargetSubArraySum > windowRight - windowLeft + 1) {
+        minTargetSubArraySum = windowRight - windowLeft + 1;
       }
-      windowSum -= nums[windowStart];
-      windowStart++;
-    }
+      console.log('accumulateSumArray: ', accumulateSumArray);
+        accumulateSumArray -= nums[windowLeft];
+        windowLeft++;
+    } 
   }
-  return minLength === Infinity ? 0 : minLength;
+  return minTargetSubArraySum === Infinity ? 0 : minTargetSubArraySum;
 };
 
-console.log(smallestSubarraySum(11, [1, 1, 1, 1, 1, 1, 1, 1]));
+console.log(smallestSubarraySum(11, [2,3,1,2,4,3]));
