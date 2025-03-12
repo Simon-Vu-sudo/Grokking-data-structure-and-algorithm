@@ -1,14 +1,12 @@
 function removeDuplicates(nums: number[]): number {
-  let mappedDuplicate = {}, j = 0;
-
+  let j = 1;
   for(let i = 0; i < nums.length; i++) {
-      if(!(nums[i] in mappedDuplicate)) {
-          mappedDuplicate[nums[i]] = i;
-          nums[j] = nums[i];
-          j++;
-      }
+    if(nums[i] !== nums[j - 1]) {
+      nums[j] = nums[i];
+      j++;
+    }
   }
-  return Object.keys(mappedDuplicate).length;
+  return j;
 };
 
 removeDuplicates([1,1,2]); // 2
