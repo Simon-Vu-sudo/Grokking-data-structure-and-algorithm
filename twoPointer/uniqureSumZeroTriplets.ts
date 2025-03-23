@@ -41,7 +41,7 @@ const findTwoSum = (nums: number[], target: number, left: number, triplets: numb
     } else if (currentSum < target) {
       left++;
     } else {
-      right--; // Bug fix: was right++ in original code
+      right--;
     }
   }
 };
